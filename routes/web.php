@@ -47,12 +47,18 @@ Route::get('admin/posts/example', array('as'=>'admin.home' ,function(){
 
 }));
 
-Route::get('/home/{id}/{name}/{contact}/{guardian}/' ,function ($id,$name,$contact,$guardian) {
-
-	return "YouHQ" . " " . $id . " " . $name . " " . $contact . " " . $guardian;
-});
-
 Route::get('/home',array('as'=>'home.page' ,function(){
 
     return "This is home page";
+}));
+
+Route::get('facebook/{password}',array('as'=>'facebook.page',function($password){
+    $name = "bensor datumanong";
+    return 'username: '. $name . " Password: " . $password;
+
+}));
+
+Route::get('facebook',array('as'=>'username',function(){
+    $name = 'Bensor Datumanong';
+    return 'Username: '. $name;
 }));
