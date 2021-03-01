@@ -20,21 +20,31 @@ Route::get('/', function () {
     
 });
 
-Route::get('/about',array('as'=>'about.page', function () {
+//BASIC ROUTING <---
+
+Route::get('greetings',function(){
+    return ('Hello HTTP Routing');
+});
+
+Route::get('/about', function () {
     return "Hi About Page";
     
-}));
+});
 
 Route::get('/contact',array('as'=>'contact.page', function () {
 
     return "Hi I am contact";
-    
+
 }));
+
+//Routes Parameters <---
 
 Route::get('/post/{id}/{name}/{contact}/{guardian}', function($id,$name,$contact,$guardian) {
     return "this is post number ". $id . " " . $name . " " . $contact . " " . $guardian;
     
 });
+
+//Naming Routes <---
 
 Route::get('admin/posts/example', array('as'=>'admin.home' ,function(){
 
@@ -48,11 +58,11 @@ Route::get('admin/posts/example', array('as'=>'admin.home' ,function(){
 }));
 
 Route::get('/home',array('as'=>'home.page' ,function(){
-
+    
     return "This is home page";
 }));
 
-Route::get('facebook/{password}',array('as'=>'facebook.page',function($password){
+Route::get('facebook/{password?}',array('as'=>'facebook.page',function($password){
     $name = "bensor datumanong";
     return 'username: '. $name . " Password: " . $password;
 
@@ -61,4 +71,15 @@ Route::get('facebook/{password}',array('as'=>'facebook.page',function($password)
 Route::get('facebook',array('as'=>'username',function(){
     $name = 'Bensor Datumanong';
     return 'Username: '. $name;
+    
 }));
+
+
+
+
+
+
+
+
+
+
